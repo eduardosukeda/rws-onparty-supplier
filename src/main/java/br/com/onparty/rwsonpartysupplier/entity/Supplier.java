@@ -13,8 +13,8 @@ public class Supplier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "cpf", length = 11, nullable = false)
-    private String cpf;
+    @Column(name = "cnpj", length = 14, nullable = false, unique = true)
+    private String cnpj;
 
     @Column(name = "name", length = 50, nullable = false)
     private String name;
@@ -43,9 +43,9 @@ public class Supplier {
     public Supplier() {
     }
 
-    public Supplier(Integer id, String cpf, String name, String email, String address, Integer number, String addressComplement, Integer telephone, Integer cep, StatusEnum status) {
+    public Supplier(Integer id, String cnpj, String name, String email, String address, Integer number, String addressComplement, Integer telephone, Integer cep, StatusEnum status) {
         this.id = id;
-        this.cpf = cpf;
+        this.cnpj = cnpj;
         this.name = name;
         this.email = email;
         this.address = address;
@@ -57,7 +57,7 @@ public class Supplier {
     }
 
     public Supplier(SupplierDTO supplierDTO) {
-        this.cpf = supplierDTO.getCpf();
+        this.cnpj = supplierDTO.getCnpj();
         this.name = supplierDTO.getName();
         this.email = supplierDTO.getEmail();
         this.address = supplierDTO.getAddress();
@@ -76,12 +76,12 @@ public class Supplier {
         this.id = id;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getName() {

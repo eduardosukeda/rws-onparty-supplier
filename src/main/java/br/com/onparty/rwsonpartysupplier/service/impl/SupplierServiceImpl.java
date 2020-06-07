@@ -31,6 +31,13 @@ public class SupplierServiceImpl implements SupplierService {
         return new SupplierDTO(getSupplier(id));
     }
 
+    @Override
+    public SupplierDTO findByCnpj(String cnpj) {
+        Supplier supplier = supplierRepository.findSupplierByCnpj(cnpj)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return new SupplierDTO(supplier);
+    }
+
     private Supplier getSupplier(Integer id) {
         return supplierRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -45,7 +52,7 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public SupplierDTO update(SupplierDTO supplierDTO) {
         Supplier supplier = getSupplier(supplierDTO.getId());
-        supplier.setCpf(supplierDTO.getCpf());
+        supplier.setCnpj(supplierDTO.getCnpj());
         supplier.setName(supplierDTO.getName());
         supplier.setEmail(supplierDTO.getEmail());
         supplier.setAddress(supplierDTO.getAddress());

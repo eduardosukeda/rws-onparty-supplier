@@ -5,7 +5,7 @@ import br.com.onparty.rwsonpartysupplier.entity.Supplier;
 public class SupplierDTO {
 
     private Integer id;
-    private String cpf;
+    private String cnpj;
     private String name;
     private String email;
     private String address;
@@ -18,9 +18,9 @@ public class SupplierDTO {
     public SupplierDTO() {
     }
 
-    public SupplierDTO(Integer id, String cpf, String name, String email, String address, Integer number, String addressComplement, Integer telephone, Integer cep, StatusEnum status) {
+    public SupplierDTO(Integer id, String cnpj, String name, String email, String address, Integer number, String addressComplement, Integer telephone, Integer cep, StatusEnum status) {
         this.id = id;
-        this.cpf = cpf;
+        this.cnpj = cnpj;
         this.name = name;
         this.email = email;
         this.address = address;
@@ -33,7 +33,7 @@ public class SupplierDTO {
 
     public SupplierDTO(Supplier supplier) {
         this.id = supplier.getId();
-        this.cpf = supplier.getCpf();
+        this.cnpj = supplier.getCnpj();
         this.name = supplier.getName();
         this.email = supplier.getEmail();
         this.address = supplier.getAddress();
@@ -52,12 +52,12 @@ public class SupplierDTO {
         this.id = id;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getName() {
